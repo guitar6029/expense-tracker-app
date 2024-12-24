@@ -1,8 +1,11 @@
+'use server';
+
 import { auth } from '@clerk/nextjs/server';
 import {db } from '@/lib/db';
 
 
 interface TransactionResult {
+    category: string,
     text: string,
     amount: number,
     createdAt: Date

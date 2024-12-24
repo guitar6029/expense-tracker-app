@@ -32,18 +32,20 @@ const TransactionItem = ({ transaction }: TransactionItemProps) => {
         <>
             {/* Title Row */}
             <div className="flex flex-row gap-2 p-2 text-center font-semibold">
-                <span className="w-2/6">Name</span>
-                <span className="w-2/6">Amount</span>
-                <span className="w-2/6">Date</span>
+                <span className="w-1/4">Category</span>
+                <span className="w-1/4">Name</span>
+                <span className="w-1/4">Amount</span>
+                <span className="w-1/4">Date</span>
             </div>
 
             {/* Transaction Row */}
             <div className="text-xl flex flex-row gap-2 p-2 rounded-lg bg-gray-100 hover:bg-gray-200">
-                <span className="w-2/6 flex justify-center items-center">{transaction.text}</span>
-                <span className="w-2/6 flex justify-center items-center">
-                    {transaction.amount > 0 ? `+${transaction.amount}` : `-${transaction.amount}`}
+                <span className="w-1/4 flex justify-center items-center">{transaction.category.charAt(0).toUpperCase() + transaction.category.slice(1)}</span>
+                <span className="w-1/4 flex justify-center items-center">{transaction.text}</span>
+                <span className={`w-1/4 flex justify-center items-center ${transaction.amount > 0 ? "text-green-600" : "text-red-600"}`} >
+                    {transaction.amount > 0 ? `+${(transaction.amount).toFixed(2)}` : `-${(transaction.amount).toFixed(2)}`}
                 </span>
-                <span className="w-2/6 flex justify-center items-center">{transaction.createdAt.toLocaleDateString()}</span>
+                <span className="w-1/4 flex justify-center items-center">{transaction.createdAt.toLocaleDateString()}</span>
                 <button onClick={() => handleDeleteItem(transaction.id)} className="ml-auto hover:text-red-700">
                     <MdDeleteForever size={30} height={30} />
                 </button>

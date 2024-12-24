@@ -2,11 +2,7 @@ import getTransactions from "@/app/actions/getTransactions";
 import TransactionItem from "./TransactionItem";
 
 const ListTransactions = async () => {
-    const transactions = await getTransactions();
-
-    console.log("transactions", transactions);
-
-   
+    const transactions = await getTransactions();   
 
     if (!transactions) {
         return <div className="text-2xl">No Transactions</div>;

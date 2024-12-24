@@ -1,5 +1,6 @@
 import 'react-toastify/dist/ReactToastify.css'
 import 'tailwindcss/tailwind.css'
+import "./global.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import { Roboto } from "next/font/google";
 import { ToastContainer } from "react-toastify";
